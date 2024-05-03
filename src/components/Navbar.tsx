@@ -1,12 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 import { Avatar } from "primereact/avatar";
-// import { Badge } from "primereact/badge";
 import { InputText } from "primereact/inputtext";
 import { Menubar } from "primereact/menubar";
-import { useNavigate } from "react-router-dom";
+import { Button } from "primereact/button";
+
+import { getDataCocktailStore } from '../service/zustandStore'
 
 import cocktailImg from '../assets/img/cocktail_mini3.jpg'
 import drinkLogo from '../assets/drink2.svg'
-import { Button } from "primereact/button";
 
 const Navbar = () => {
   /*const itemRenderer = (item: any) => (
@@ -44,15 +46,17 @@ const Navbar = () => {
       }
   ];
 
+  const { dataCocktail, setCocktail } = getDataCocktailStore();
+  // const cocktailStore = getDataCocktailStore();
+  // const cocktail = cocktailStore((state: any) => state.dataCocktail);
+
   const start = <img alt="logo" src={drinkLogo} height="40" className="ml-2 mr-4"></img>;
   const end = (
     <div className="flex align-items-center gap-1">
       <Avatar image={cocktailImg} shape="circle" style={{width: "2.5rem", height: "2.5rem"}} className="mr-3" />
-      <InputText placeholder="Search" type="text" className="w-8rem sm:w-auto" onChange={(e) => {
-        console.log(e);
-        
-                    // if(e.target.value?.length > 2) setSearchCocktail(e.target.value)
-                }} />
+      <InputText placeholder={dataCocktail} type="text" className="w-8rem sm:w-auto" onChange={(e) => {
+        if(e.target.value?.length > 2) setCocktail(e.target.value)
+      }} />
       <Button icon="pi pi-search" rounded text aria-label="search" severity="secondary" />
     </div>
   );

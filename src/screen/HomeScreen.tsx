@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import useFetch from "../service/useFetch";
+// import useFetch from "../service/useFetch";
 
-import { useGetData } from '../service/zustandStore';
+import { getDataCocktailStore } from '../service/zustandStore';
 import { colors } from "../const/colors";
 import { gallery } from "../const/gallery";
 import { responsiveOptions } from "../const/responsiveCarousel";
@@ -22,17 +22,14 @@ import { iCocktail } from "../interface/iCocktail";
 import { Dialog } from "primereact/dialog";
 
 const HomeScreen = () => {
-    const getData = useGetData()
-    const { cocktails } = useGetData()
-    const [searchCocktail, setSearchCocktail] = useState('mojito')
-    const { data } = useFetch(`s=${searchCocktail}`)
+    const { dataCocktail, getCocktail, cocktailsList, setCocktail } = getDataCocktailStore();
+    // const [searchCocktail, setSearchCocktail] = useState(dataCocktail)
+    // const { data } = useFetch(`s=${searchCocktail}`)
     const [detailCocktailB, setDetailCocktailB] = useState(false)
 
-    useEffect(() => {
-      getData.execute();
-    }, [searchCocktail]);
-    // const { dataCocktail, getData } = getDataCocktailStore()
-    console.log(2, data, cocktails);
+    useEffect(() => {   
+        getCocktail(dataCocktail);
+    }, [dataCocktail]);
     
     const itemTemplate = (item: any) => {
       return <img src={item.itemImageSrc} alt={item.alt} style={{ width: '100%', display: 'block' }} />;
@@ -45,17 +42,14 @@ const HomeScreen = () => {
   const goToDetail = (c: iCocktail) => {
     console.log(22, c);    
   };
-  /*const searchCocktailF = (c: string) => {
-    console.log(23, c);    
-  };*/
 
   const productTemplate = (c: iCocktail) => {
       return (
         <div className="surface-0 p-4 shadow-2 border-round cardCocktail m-5 flex flex-column gap-3">
             <div className="text-2xl font-medium text-900 cursor-pointer" onClick={() => { goToDetail(c); setDetailCocktailB(true) }}>{c?.strDrink}</div>
             <div className="flex justify-content-center align-content-start gap-1 flex-wrap ingredients">
-                { c?.ingredientList.map((ingredient: string, i: number) => (
-                    <Chip label={ingredient} style={{backgroundColor: colors[i]?.background, color: colors[i]?.color }} />
+                { c?.ingredientList && c?.ingredientList.map((ingredient: string, i: number) => (
+                    <Chip key={i} label={ingredient} style={{backgroundColor: colors[i]?.background, color: colors[i]?.color }} />
                 ))
                 }
             </div>
@@ -93,8 +87,8 @@ const HomeScreen = () => {
                     <div className="ml-2 pb-1"><span className="font-bold">Roberto Benigni</span> - Attore, comico, regista e cantautore</div>
                 </div>
                 <Button label="Cerca i Nostri Cocktails" type="button" className="mr-3 p-button-raised mt-4" />
-                <InputText placeholder="Mojito" type="text" className="w-8rem sm:w-auto" onChange={(e) => {
-                    if(e.target.value?.length > 2) setSearchCocktail(e.target.value)
+                <InputText placeholder={dataCocktail} type="text" className="w-8rem sm:w-auto" onChange={(e) => {
+                    if(e.target.value?.length > 2) setCocktail(e.target.value)
                 }} />
                 { /* <Button icon="pi pi-search" rounded text aria-label="search" severity="secondary" onClick={() => { searchCocktailF('vodka') }} /> */ }
           </section>
@@ -105,8 +99,8 @@ const HomeScreen = () => {
   </div>
   
   <div>
-  <Carousel value={data} numVisible={3} numScroll={3} responsiveOptions={responsiveOptions} className="custom-carousel" circular
-autoplayInterval={55000} itemTemplate={productTemplate} />
+<Carousel value={cocktailsList} numVisible={3} numScroll={3} responsiveOptions={responsiveOptions} className="custom-carousel" circular
+    autoplayInterval={55000} itemTemplate={productTemplate} />
 <Dialog visible={detailCocktailB} modal header={headerElement} footer={footerContent} style={{ width: '50rem' }} onHide={() => setDetailCocktailB(false)}>
     <p className="m-0">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
