@@ -45,9 +45,9 @@ const HomeScreen = () => {
   const goToDetail = (c: iCocktail) => {
     console.log(22, c);    
   };
-  const searchCocktailF = (c: string) => {
+  /*const searchCocktailF = (c: string) => {
     console.log(23, c);    
-  };
+  };*/
 
   const productTemplate = (c: iCocktail) => {
       return (

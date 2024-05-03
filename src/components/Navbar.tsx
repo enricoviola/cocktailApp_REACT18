@@ -49,6 +49,8 @@ const Navbar = () => {
     <div className="flex align-items-center gap-1">
       <Avatar image={cocktailImg} shape="circle" style={{width: "2.5rem", height: "2.5rem"}} className="mr-3" />
       <InputText placeholder="Search" type="text" className="w-8rem sm:w-auto" onChange={(e) => {
+        console.log(e);
+        
                     // if(e.target.value?.length > 2) setSearchCocktail(e.target.value)
                 }} />
       <Button icon="pi pi-search" rounded text aria-label="search" severity="secondary" />
