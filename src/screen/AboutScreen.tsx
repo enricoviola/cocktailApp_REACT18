@@ -1,13 +1,17 @@
+import Lottie from "lottie-react";
 import { Button } from "primereact/button";
+import aboutUsAni from "../assets/lotties/aboutUsAni.json";
 
 const AboutScreen = () => {
   return <>
   
 <div className="surface-ground px-4 py-8 md:px-6 lg:px-8">
     <div className="text-900 font-bold text-4xl mb-4 text-center">Chi Siamo</div>
-    <div className="text-700 mb-6 text-center line-height-3">Siamo un'azienda di creazione e distribuzione di Cocktail monouso impacchettati.</div>
+    <div className="text-700 text-center line-height-3">Siamo un'azienda di creazione e distribuzione di Cocktail monouso impacchettati.</div>
 
-    <div className="text-900 font-bold text-2xl mb-4 text-center">Pricing list</div>
+    <Lottie animationData={aboutUsAni} style={{height: 400}}/>
+    
+    <div className="text-900 font-bold text-2xl mb-4 text-center mt-6">Pricing list</div>
     <div className="grid">
         <div className="col-12 lg:col-4">
             <div className="p-3 h-full">

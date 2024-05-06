@@ -1,8 +1,5 @@
-// import { Avatar } from 'primereact/avatar';
 import { Button } from 'primereact/button';
-// import { Checkbox } from 'primereact/checkbox';
 import { InputText } from 'primereact/inputtext';
-// import { useState } from 'react';
 
 // Make sure to run npm install @formspree/react
 // For more help visit https://formspr.ee/react-help
@@ -15,17 +12,14 @@ import Lottie from 'lottie-react';
 import { Link } from 'react-router-dom';
 
 const ContactScreen = () => {
-  const [state, handleSubmit] = useForm("xeqyngeq");
-  const style = {
-    height: 400,
-  }
+  const [state, handleSubmit] = useForm("xeqyngeq")
 
   if (state.succeeded) {
       return <>
       <div className="surface-0 text-700 text-center card">
           <div className="text-blue-600 font-bold mb-3">Presto risponderemo alla tua richiesta</div>
           <div className="text-900 font-bold text-5xl mb-5">Email inviata correttamente</div>
-          <Lottie animationData={sendAni} style={style}/>
+          <Lottie animationData={sendAni} style={{height: 400}}/>
           <div className="text-700 text-l mb-5">Presto risponderemo alla tua richiesta</div>
           <Link to = "/" className="p-button font-bold px-5 py-3 p-button-raised p-button-rounded white-space-nowrap no-underline">Torna alla Home</Link>
       </div>
@@ -40,7 +34,7 @@ const ContactScreen = () => {
         <div className="text-center mb-5 flex flex-column align-items-center justify-content-center">
             <div className="text-900 text-3xl font-medium mb-3">Contatti</div>
         <div className="mb-3 flex align-items-center">
-          <Lottie animationData={cocktailAni} style={style}/>
+          <Lottie animationData={cocktailAni} style={{height: 400}}/>
           </div>
             <div>
             <span className="text-600 font-medium line-height-3">Hai qualche domanda?</span>

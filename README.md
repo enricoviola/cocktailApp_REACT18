@@ -6,6 +6,12 @@ Link al progetto finale: https://imiglioridrinks.netlify.app/
 
 Link Documentazione **cocktailbd** API: https://www.thecocktaildb.com/api.php
 
+# Git command
+
+git add *
+git commit -m "n commit"
+git push -u origin main
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

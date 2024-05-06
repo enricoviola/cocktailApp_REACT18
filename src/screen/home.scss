@@ -4,16 +4,3 @@
 .cardCocktail {
     max-width: 350px;
 }
-.ingredients {
-    height: 76px;
-    overflow-y: hidden;
-    .p-chip {
-        padding-left: 8px !important;
-        padding-right: 8px !important;
-        span {
-            margin-top: 4px !important;
-            margin-bottom: 4px !important;
-            font-size: 0.9rem !important;
-        }
-    }
-}

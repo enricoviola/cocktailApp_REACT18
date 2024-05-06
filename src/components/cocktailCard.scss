@@ -1,0 +1,19 @@
+.cocktailCard {
+    .cocktailTitle {
+        height: 30px;
+        overflow-y: hidden;
+    }
+    .ingredients {
+        height: 98px;
+        overflow-y: auto;
+        .p-chip {
+            padding-left: 8px !important;
+            padding-right: 8px !important;
+            span {
+                margin-top: 4px !important;
+                margin-bottom: 4px !important;
+                font-size: 0.9rem !important;
+            }
+        }
+    }
+}
