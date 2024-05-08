@@ -2,7 +2,6 @@ import { useEffect } from "react";
 // import useFetch from "../service/useFetch";
 
 import { getDataCocktailStore } from '../service/zustandStore';
-import { gallery } from "../const/gallery";
 import { responsiveOptions } from "../const/responsiveCarousel";
 import { iCocktail } from "../interface/iCocktail";
 import CocktailCard from "../components/cocktailCard";
@@ -16,20 +15,34 @@ import { Carousel } from "primereact/carousel";
 import cocktailImg from '../assets/img/cocktail.jpg'
 import benigniImg from '../assets/img/Roberto-Benigni.jpg'
 import tequilaImg from '../assets/img/tequilaLemon.jpg'
+import galleria1 from '../assets/img/galleria1.jpg'
+import galleria2 from '../assets/img/galleria2.jpg'
+import galleria3 from '../assets/img/galleria3.jpg'
+import galleria4 from '../assets/img/galleria4.jpg'
+import galleria5 from '../assets/img/galleria5.jpg'
+import galleria6 from '../assets/img/galleria6.jpg'
+import galleria7 from '../assets/img/galleria7.jpg'
 import './home.scss'
 
 const HomeScreen = () => {
-    const { dataCocktail, getCocktail, cocktailsList, setCocktail } = getDataCocktailStore();
-    // const [searchCocktail, setSearchCocktail] = useState(dataCocktail)
-    // const { data } = useFetch(`s=${searchCocktail}`)
-    // const [detailCocktailB, setDetailCocktailB] = useState(false)
+    const gallery1: any[] = [
+        { itemImageSrc: galleria1, title: 'Galleria 1' },
+        { itemImageSrc: galleria2, title: 'Galleria 2' },
+        { itemImageSrc: galleria3, title: 'Galleria 3' },
+        { itemImageSrc: galleria4, title: 'Galleria 4' },
+        { itemImageSrc: galleria5, title: 'Galleria 5' },
+        { itemImageSrc: galleria6, title: 'Galleria 6' },
+        { itemImageSrc: galleria7, title: 'Galleria 7' }
+    ]
+
+    const { dataCocktail, getCocktail, cocktailsList, setCocktail } = getDataCocktailStore()
 
     useEffect(() => {   
         getCocktail(dataCocktail);
     }, [dataCocktail]);
     
     const itemTemplate = (item: any) => {
-      return <img src={item.itemImageSrc} alt={item.alt} style={{ width: '100%', display: 'block' }} />;
+      return <img src={`${item.itemImageSrc}`} alt={item.alt} style={{ width: '100%', display: 'block' }} />;
   }
 
   const thumbnailTemplate = (item: any) => {
@@ -73,7 +86,7 @@ const HomeScreen = () => {
     
 
 
-  <Galleria value={gallery} numVisible={5} circular style={{ maxHeight: '350px', width: '100%', overflow: 'hidden' }} showItemNavigators 
+  <Galleria value={gallery1} numVisible={5} circular style={{ maxHeight: '350px', width: '100%', overflow: 'hidden' }} showItemNavigators 
     showThumbnails={false} item={itemTemplate} thumbnail={thumbnailTemplate} autoPlay transitionInterval={5000} />
   
 <div className="surface-0 text-center card my-6">

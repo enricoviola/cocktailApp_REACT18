@@ -35,7 +35,6 @@ const CocktailCard = ({cocktail}: any) => {
         height: '390',
         width: '640',
         playerVars: {
-          // https://developers.google.com/youtube/player_parameters
           autoplay: 0,
         },
       };
@@ -66,10 +65,6 @@ const CocktailCard = ({cocktail}: any) => {
                 }
             </div>
           }
-          {/*
-          <div className="font-normal mb-3">{c?.strInstructionsIT}</div>
-          <div style={{ height: '150px' }} className="border-2 border-dashed border-300"></div>
-          */}
           <Image src={c?.strDrinkThumb} alt="Image" width="250" preview />
           <Button label="Istruzioni" type="button" className="p-button-raised" onClick={() => {goToDetail(); setDetailCocktailB(true)}} />
       </div>

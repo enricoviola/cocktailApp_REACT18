@@ -7,7 +7,6 @@ import { useForm, ValidationError } from '@formspree/react';
 import sendAni from "../assets/lotties/send.json";
 import cocktailAni from "../assets/lotties/cocktail.json";
 
-// import tequilaImg from '../assets/img/tequilaLemon.jpg'
 import Lottie from 'lottie-react';
 import { Link } from 'react-router-dom';
 
@@ -25,7 +24,6 @@ const ContactScreen = () => {
       </div>
           </>
   }
-  // const [checked, setChecked] = useState<boolean>(false)
 
   return <> 
   <form onSubmit={handleSubmit}>
@@ -49,15 +47,7 @@ const ContactScreen = () => {
 
             <label htmlFor="message" className="block text-900 font-medium mb-2">Testo</label>
             <InputText id="message" type="text" name="message" placeholder="Testo" className="w-full mb-3" />
-      <ValidationError  prefix="Message" field="message" errors={state.errors}/>
-
-            { /*<div className="flex align-items-center justify-content-between mb-6">
-                <div className="flex align-items-center">
-                    <Checkbox id="rememberme" onChange={e => setChecked(e.checked || false)} checked={checked} className="mr-2" />
-                    <label htmlFor="rememberme">Remember me</label>
-                </div>
-                <a className="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot your password?</a>
-</div> */ }
+            <ValidationError  prefix="Message" field="message" errors={state.errors}/>
 
             <Button label="Invia" icon="pi pi-send" className="w-full" type="submit" disabled={state.submitting} />
         </div>

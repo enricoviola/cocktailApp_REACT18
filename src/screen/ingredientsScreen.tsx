@@ -22,7 +22,7 @@ const IngredientsScreen = () => {
     const dispatch = useDispatch();
     // Pass skip parameter that accepts a boolean
     const { data } = useGetCocktailsQuery(ingredient);
-    // * Redux Toolkit - START
+    // * Redux Toolkit - END
     
   const [ingredientLocal, setIngredientLocal] = useState<string>(ingredient)
   const [ricercaB, setRicercaB] = useState<boolean>(false)
