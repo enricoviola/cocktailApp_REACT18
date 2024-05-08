@@ -58,12 +58,14 @@ const CocktailCard = ({cocktail}: any) => {
       <div className="surface-0 p-4 shadow-2 border-round cardCocktail m-5 flex flex-column gap-3 cocktailCard">
           <div className="text-2xl font-medium text-900 cursor-pointer cocktailTitle"
           onClick={() => { goToDetail(); setDetailCocktailB(true) }}>{c?.strDrink}</div>
-          <div className="flex justify-content-center align-content-start gap-1 flex-wrap ingredients">
-              { c?.ingredientList && c?.ingredientList.map((ingredient: string, i: number) => (
-                  <Chip key={i} label={ingredient} style={{backgroundColor: colors[i]?.background, color: colors[i]?.color }} />
-              ))
-              }
-          </div>
+          { c?.ingredientList &&
+            <div className="flex justify-content-center align-content-start gap-1 flex-wrap ingredients">
+                { c?.ingredientList && c?.ingredientList.map((ingredient: string, i: number) => (
+                    <Chip key={i} label={ingredient} style={{backgroundColor: colors[i]?.background, color: colors[i]?.color }} />
+                ))
+                }
+            </div>
+          }
           {/*
           <div className="font-normal mb-3">{c?.strInstructionsIT}</div>
           <div style={{ height: '150px' }} className="border-2 border-dashed border-300"></div>

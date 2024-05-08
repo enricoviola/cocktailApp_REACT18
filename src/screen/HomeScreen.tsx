@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 // import useFetch from "../service/useFetch";
 
 import { getDataCocktailStore } from '../service/zustandStore';
@@ -11,10 +11,7 @@ import { Button } from "primereact/button";
 import { Galleria } from "primereact/galleria";
 import { Avatar } from "primereact/avatar";
 import { InputText } from "primereact/inputtext";
-import { Image } from "primereact/image";
 import { Carousel } from "primereact/carousel";
-import { Chip } from "primereact/chip";
-import { Dialog } from "primereact/dialog";
 
 import cocktailImg from '../assets/img/cocktail.jpg'
 import benigniImg from '../assets/img/Roberto-Benigni.jpg'
@@ -55,10 +52,12 @@ const HomeScreen = () => {
                     <div><Avatar image={benigniImg} shape="circle" style={{width: "2.5rem", height: "2.5rem"}} /></div>
                     <div className="ml-2 pb-1"><span className="font-bold">Roberto Benigni</span> - Attore, comico, regista e cantautore</div>
                 </div>
-                <Button label="Cerca i Nostri Cocktails" type="button" className="mr-3 p-button-raised mt-4" />
-                <InputText placeholder={dataCocktail} type="text" className="w-8rem sm:w-auto" onChange={(e) => {
-                    if(e.target.value?.length > 2) setCocktail(e.target.value)
-                }} />
+                <div className="flex align-items-center justify-content-start mt-4">
+                    <Button label="Cerca i Nostri Cocktails" type="button" className="mr-3 p-button-raised" />
+                    <InputText placeholder={dataCocktail} type="text" className="w-8rem sm:w-auto" onChange={(e) => {
+                        if(e.target.value?.length > 2) setCocktail(e.target.value)
+                    }} />
+                </div>
                 { /* <Button icon="pi pi-search" rounded text aria-label="search" severity="secondary" onClick={() => { searchCocktailF('vodka') }} /> */ }
           </section>
       </div>

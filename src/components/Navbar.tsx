@@ -36,10 +36,19 @@ const Navbar = () => {
           }
       },
       {
-          label: 'Contact',
+          label: 'Contatti',
           icon: 'pi pi-envelope',
           command: () => {
             navigate('/contatti');
+          }
+          // badge: 3,
+          // template: itemRenderer
+      },
+      {
+          label: 'Ingredienti',
+          icon: 'pi pi-palette',
+          command: () => {
+            navigate('/ingredienti');
           }
           // badge: 3,
           // template: itemRenderer
